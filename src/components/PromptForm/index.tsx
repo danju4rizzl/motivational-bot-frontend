@@ -1,7 +1,6 @@
-// PromptForm.tsx
-import { useState, ChangeEvent, FormEvent } from "react"
-import { useForm } from "react-hook-form"
-
+// Import necessary libraries and components
+import { useState, FormEvent } from "react"
+import { useForm, FormProvider } from "react-hook-form"
 import {
 	FormControl,
 	FormLabel,
@@ -12,69 +11,103 @@ import {
 	Radio,
 	Select
 } from "@chakra-ui/react"
-import PromptInput from "./PromptInput"
 
 import { useMutation } from "@tanstack/react-query"
-
 import { postPrompt } from "../../utils"
+import appConfig from "../../config/appConfig"
 
-// Export this to a separate file to configure the options
-
+// Define the interface for the PromptForm component's props
 interface PromptFormProps {
 	onServerData: (data: any) => void
 }
 
+// Define the PromptForm component
 const PromptForm: React.FC<PromptFormProps> = ({ onServerData }) => {
-	const [prompt, setPrompt] = useState("")
+	// Initialize the useForm hook
+	const { register, handleSubmit } = useForm()
 
+	// Configure the postPromptMutation using react-query
 	const postPromptMutation = useMutation(postPrompt, {
 		onSuccess: (data) => {
+			console.log(" data from server:", data)
 			onServerData(data)
 		},
 		onError: (error) => {
 			console.log(error)
+			alert("Something went wrong, check the server 🔴")
 		}
 	})
 
-	const tones = [
-		"Confident",
-		"Engaging",
-		"Professional",
-		"Conversational",
-		"Custom"
-	]
+	// Define the handleSubmitForm function to handle form submission
+	function handleSubmitForm(data: any) {
+		console.log("data", data)
+		const { tone, assistant, format } = data
 
-	// post the prompt to request to the backend using react-query
-	function handlePromptChange(e: ChangeEvent<HTMLTextAreaElement>) {
-		setPrompt(e.target.value)
+		// Call the postPromptMutation with the form data
+		postPromptMutation.mutate({
+			prompt: data.prompt,
+			route: assistant,
+			tone,
+			format
+		})
 	}
 
-	function handleSubmit(e: FormEvent<HTMLFormElement>) {
-		e.preventDefault()
-		// Todo: add the tone to the request and make add radio for each route with a loop
-		postPromptMutation.mutate({ prompt, route: "private" })
-	}
+	const methods = useForm()
 
+	// Render the form with the necessary form elements
 	return (
-		<form onSubmit={handleSubmit}>
-			<PromptInput prompt={prompt} onPromptChange={handlePromptChange} />
+		<FormProvider {...methods}>
+			<form onSubmit={handleSubmit(handleSubmitForm)}>
+				<FormControl>
+					<FormLabel htmlFor="Prompt">Write your prompt</FormLabel>
+					<Textarea
+						id="Prompt"
+						height={{ base: 50, md: 210 }}
+						placeholder="I want to you to write a blog about Business Intelligence."
+						{...register("prompt", { required: true, maxLength: 2501 })}
+					/>
+				</FormControl>
 
-			<FormControl>
-				<FormLabel>Select our tone</FormLabel>
-				<Select placeholder="Select option">
-					{tones.map((tone) => (
-						<option key={tone} value={tone}>
-							{tone}
-						</option>
-					))}
-				</Select>
-			</FormControl>
+				<FormControl>
+					<FormLabel>How do you want to sound</FormLabel>
+					<Select placeholder="Select option" {...register("tone")}>
+						{appConfig.promptConfig.toneOptions.map((option) => (
+							<option key={option.value} value={option.value}>
+								{option.label}
+							</option>
+						))}
+					</Select>
+				</FormControl>
 
-			<Button colorScheme="teal" my={"5"} type="submit">
-				Send
-			</Button>
-		</form>
+				<FormControl>
+					<FormLabel>Which assistant do you want use</FormLabel>
+					<Select placeholder="Select option" {...register("assistant")}>
+						{appConfig.promptConfig.assistantOptions.map((option) => (
+							<option key={option.value} value={option.value}>
+								{option.label}
+							</option>
+						))}
+					</Select>
+				</FormControl>
+
+				<FormControl>
+					<FormLabel>How do you want to show results</FormLabel>
+					<Select placeholder="Select option" {...register("format")}>
+						{appConfig.promptConfig.formatOptions.map((option) => (
+							<option key={option.value} value={option.value}>
+								{option.label}
+							</option>
+						))}
+					</Select>
+				</FormControl>
+
+				<Button colorScheme="teal" my={"5"} type="submit">
+					Send
+				</Button>
+			</form>
+		</FormProvider>
 	)
 }
 
+// Export the PromptForm component
 export default PromptForm

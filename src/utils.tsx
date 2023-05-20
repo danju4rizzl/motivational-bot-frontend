@@ -4,16 +4,9 @@ const API_URL = "http://localhost:8000"
 
 interface postPromptProps {
 	prompt: string
-	route:
-		| "seo"
-		| "accountant"
-		| "realtor"
-		| "business"
-		| "legal"
-		| "sales"
-		| "medical"
-		| "diy"
-		| "private"
+	tone: string
+	format: string
+	route: string
 }
 
 //  This will make the request to the backend to get all the data
@@ -26,10 +19,17 @@ export const getAllData = async () => {
 	}
 }
 
-//  This will make the request to the backend to post the prompt
-export const postPrompt = async ({ prompt, route }: postPromptProps) => {
+//  This will make the request to the backend to post the prompt and its parameters
+export const postPrompt = async ({
+	prompt,
+	route,
+	tone,
+	format
+}: postPromptProps) => {
 	const response = await axios.post(`${API_URL}/${route}`, {
-		question: prompt
+		prompt,
+		tone,
+		format
 	})
 
 	// console.log(response.data)
