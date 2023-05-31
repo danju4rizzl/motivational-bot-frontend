@@ -23,12 +23,7 @@ const appConfig = {
       { value: "Email", label: "Email" },
       { value: "Social Media", label: "Social Media" },
     ]
-  },
-  responsiveConfig: {
-    responsivePadding: { base: "1.2rem", md: "1.6rem", lg: "2rem" }
   }
-
-
 }
 
 export default appConfig;
