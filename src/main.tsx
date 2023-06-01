@@ -3,16 +3,10 @@ import ReactDOM from "react-dom/client"
 import { ChakraProvider, extendTheme } from "@chakra-ui/react"
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 import App from "./App.tsx"
-import {
-	createBrowserRouter,
-	createRoutesFromElements,
-	Route,
-	RouterProvider
-} from "react-router-dom"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
-import HomePage from "./pages/HomePage.tsx"
 import LoginPage from "./pages/LoginPage.tsx"
-import Root from "./routes/root.tsx"
+import Root from "./routes/Root.tsx"
 import ErrorPage from "./pages/ErrorPage.tsx"
 
 // This is to extend chakraUI's color styles

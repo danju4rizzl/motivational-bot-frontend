@@ -1,17 +1,23 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 import { Flex, Text, Box, Card, CardBody } from "@chakra-ui/react"
 
 import PromptForm from "./components/PromptForm"
 
+interface ServerDataObject {
+	aiData: string
+}
+
 function App() {
 	const responsivePadding = { base: "1.2rem", md: "1.6rem", lg: "2rem" }
 
 	// this is the data from the server
-	const [serverDataState, setServerDataState] = useState(null)
+	const [serverDataState, setServerDataState] =
+		useState<ServerDataObject | null>(null)
 
-	const getAiData = (data) => {
+	const getAiData = (data: ServerDataObject) => {
 		setServerDataState(data)
+		console.log(data)
 	}
 
 	return (

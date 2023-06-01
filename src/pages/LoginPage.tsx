@@ -1,14 +1,4 @@
-import {
-	Text,
-	FormControl,
-	Input,
-	Button,
-	Container,
-	Grid,
-	Heading
-} from "@chakra-ui/react"
-import { useForm, SubmitHandler } from "react-hook-form"
-import { useState } from "react"
+import { Container, Grid, Heading } from "@chakra-ui/react"
 
 import supabase from "../config/supabaseClient"
 import { Auth } from "@supabase/auth-ui-react"

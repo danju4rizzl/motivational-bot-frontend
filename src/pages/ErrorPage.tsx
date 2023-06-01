@@ -1,14 +1,6 @@
-import { useRouteError, Link } from "react-router-dom"
+import { useRouteError } from "react-router-dom"
 import LinkButton from "../components/Buttons/LinkButton"
-import {
-	Heading,
-	Text,
-	Flex,
-	Container,
-	Center,
-	Box,
-	Grid
-} from "@chakra-ui/react"
+import { Heading, Text, Box, Grid } from "@chakra-ui/react"
 
 interface RouteError {
 	statusText: string
@@ -16,7 +8,7 @@ interface RouteError {
 }
 
 export default function ErrorPage() {
-	const error: RouteError = useRouteError()
+	const error = useRouteError() as RouteError
 	console.error(error)
 
 	return (
