@@ -17,7 +17,7 @@ const HomePage = () => {
 				</Heading>
 				<Text maxW={"md"} fontWeight={"medium"}>
 					With our visual assistants, you can finally focus on the things that
-					matter most. Start working 10x more productive today!
+					matter most. Start working 10x 🦾 more productive today!
 				</Text>
 
 				<ButtonGroup spacing={5} my={2}>
