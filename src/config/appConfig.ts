@@ -14,14 +14,16 @@ const appConfig = {
       { value: "Accountant", label: "Accountant" },
       { value: "Realtor", label: "Realtor" },
       { value: "Business", label: "Business" },
+      { value: "Senior Developer", label: "Developer" },
     ],
 
     formatOptions: [
-      { value: "Markdown", label: "Markdown" },
-      { value: "List", label: "List" },
+      { value: "Step by Step", label: "List" },
       { value: "Paragraph", label: "Paragraph" },
       { value: "Email", label: "Email" },
-      { value: "Social Media", label: "Social Media" },
+      { value: "Code", label: "Code" },
+      { value: "Markdown", label: "Markdown" },
+      { value: "Social Media Post", label: "Social Media" },
     ]
   }
 }

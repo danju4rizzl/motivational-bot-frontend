@@ -1,37 +1,45 @@
 import { Link as ReactLinks } from "react-router-dom"
 import { Link } from "@chakra-ui/react"
+
 interface LinkButtonProps {
-	text: string
-	linkTo: string
+	btnText: string
+	linkTo?: string
 	textColor?: string
 	isOutline?: boolean
+	reloadPage?: boolean
+	onClick?: () => void
 }
 
 const LinkButton = ({
-	text,
+	btnText,
 	linkTo,
 	textColor,
-	isOutline
+	isOutline,
+	onClick,
+	reloadPage
 }: LinkButtonProps) => {
 	return (
 		<Link
 			as={ReactLinks}
 			to={linkTo}
-			display={"flex"}
-			alignItems={"center"}
-			fontSize={"md"}
+			display={"grid"}
+			placeItems={"center"}
+			w={"full"}
+			px={5}
+			py={1}
 			fontWeight={"semibold"}
 			textTransform={"capitalize"}
 			bg={!isOutline ? "teal" : ""}
 			color={textColor || "white"}
 			border={isOutline ? "1px solid currentColor" : ""}
 			rounded={"base"}
-			px={5}
 			_hover={{
 				bg: `${!isOutline ? "teal.500" : ""}`
 			}}
+			onClick={onClick}
+			reloadDocument={reloadPage}
 		>
-			{text}
+			{btnText}
 		</Link>
 	)
 }

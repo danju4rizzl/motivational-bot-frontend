@@ -8,11 +8,11 @@ const LoginPage = () => {
 	return (
 		<Container>
 			<Grid>
-				<Heading fontSize={26}>Login Page</Heading>
+				<Heading fontSize={26}>Hey There 👋</Heading>
 				<Auth
 					supabaseClient={supabase}
 					appearance={{ theme: ThemeSupa }}
-					providers={["google", "facebook", "twitter"]}
+					providers={["google", "github"]}
 				/>
 			</Grid>
 		</Container>

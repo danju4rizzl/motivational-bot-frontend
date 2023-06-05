@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import LoginPage from "./pages/LoginPage.tsx"
 import Root from "./routes/Root.tsx"
 import ErrorPage from "./pages/ErrorPage.tsx"
+import useUserData from "./hooks/useUserData.tsx"
 
 // This is to extend chakraUI's color styles
 // This defines the colors object, which contains the brand color palette
@@ -27,10 +28,6 @@ const router = createBrowserRouter([
 		element: <Root />,
 		errorElement: <ErrorPage />,
 		children: [
-			{
-				path: "/app",
-				element: <App />
-			},
 			{
 				path: "/login",
 				element: <LoginPage />

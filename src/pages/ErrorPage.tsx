@@ -1,5 +1,5 @@
 import { useRouteError } from "react-router-dom"
-import LinkButton from "../components/Buttons/LinkButton"
+import LinkButton from "../components/UI/LinkButton"
 import { Heading, Text, Box, Grid } from "@chakra-ui/react"
 
 interface RouteError {
@@ -17,7 +17,7 @@ export default function ErrorPage() {
 				<Heading>Oops!</Heading>
 				<Text>Sorry, an unexpected error has occurred.</Text>
 				<Text>{error.statusText}</Text>
-				<LinkButton linkTo="/" text="Go to HomePage" />
+				<LinkButton linkTo="/" btnText="Go to HomePage" />
 			</Grid>
 		</Box>
 	)
