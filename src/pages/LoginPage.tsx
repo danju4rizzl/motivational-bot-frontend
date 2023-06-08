@@ -7,7 +7,8 @@ import appConfig from "../config/appConfig"
 const customTheme = {
 	default: {
 		colors: {
-			brand: appConfig.allColors.brand[200]
+			brand: appConfig.allColors.brand[200],
+			brandAccent: appConfig.allColors.brand[100]
 		}
 	}
 }
@@ -17,7 +18,7 @@ const LoginPage = () => {
 		<Container py={[45, 15]}>
 			<Grid>
 				<Heading
-					fontSize={[50, 70]}
+					fontSize={[50, 60]}
 					my={2}
 					fontWeight={"hairline"}
 					textAlign={"center"}
@@ -27,7 +28,7 @@ const LoginPage = () => {
 				<Auth
 					supabaseClient={supabase}
 					providers={["google", "github"]}
-					appearance={{ theme: customTheme }}
+					appearance={{ theme: ThemeSupa, variables: customTheme }}
 				/>
 			</Grid>
 		</Container>

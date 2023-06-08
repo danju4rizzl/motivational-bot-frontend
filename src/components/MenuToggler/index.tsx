@@ -1,4 +1,11 @@
-import { Avatar, Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react"
+import {
+	Avatar,
+	Menu,
+	MenuButton,
+	MenuList,
+	MenuItem,
+	Tooltip
+} from "@chakra-ui/react"
 import { BsRobot } from "react-icons/bs"
 import supabase from "../../config/supabaseClient"
 import LinkButton from "../UI/LinkButton"
@@ -14,30 +21,23 @@ const MenuToggler = ({ userImgSrc }: MenuTogglerProps) => {
 
 	return (
 		<Menu>
-			<MenuButton
-				as={Avatar}
-				cursor="pointer"
-				name="Deejay Dev"
-				src={userImgSrc}
-				loading="lazy"
-			/>
+			<Tooltip hasArrow label={"View Options"} p={3} rounded={"md"}>
+				<MenuButton
+					as={Avatar}
+					cursor="pointer"
+					name="Deejay Dev"
+					src={userImgSrc}
+					loading="lazy"
+					size={"sm"}
+				/>
+			</Tooltip>
 			<MenuList>
-				<MenuItem
-					display={"flex"}
-					justifyContent={"center"}
-					gap={2}
-					color={"teal.700"}
-				>
+				<MenuItem display={"flex"} justifyContent={"center"} gap={2}>
 					Build Your Own
 					<BsRobot />
 				</MenuItem>
 				<MenuItem>
-					<LinkButton
-						btnText="Logout"
-						isOutline
-						textColor="teal"
-						onClick={handleLogout}
-					/>
+					<LinkButton btnText="Logout" onClick={handleLogout} />
 				</MenuItem>
 			</MenuList>
 		</Menu>

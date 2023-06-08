@@ -1,42 +1,37 @@
 import { Flex, Stack, Hide, Box } from "@chakra-ui/react"
-
 import LinkButton from "../components/UI/LinkButton"
-
 import useUserData from "../hooks/useUserData"
 import Logo from "../components/UI/Logo"
-import { MdMenu, MdChevronRight } from "react-icons/md"
 import MenuToggler from "../components/MenuToggler"
 
 const Header = () => {
 	const user = useUserData()
-
+	// console.log(user)
 	return (
 		<header>
+			{/* Desktop Navigation */}
 			<Hide below="md">
-				<Flex
-					justifyContent="space-between"
-					alignContent="center"
-					py={5}
-					px={28}
-				>
+				<Flex justifyContent="space-between" alignItems="center" py={5} px={28}>
 					<Logo />
-					{!user ? (
-						<Stack direction={"row"} spacing={5}>
+					<Stack direction={"row"} spacing={5}>
+						{!user ? (
 							<LinkButton btnText="login" linkTo="/login" />
-						</Stack>
-					) : (
-						<Stack direction={"row"} spacing={5}>
+						) : (
 							<MenuToggler userImgSrc={`${user.avatar_url}`} />
-						</Stack>
-					)}
+						)}
+					</Stack>
 				</Flex>
 			</Hide>
+			{/* Mobile Navigation */}
 			<Hide above="md">
 				<Flex justify={"space-between"} alignItems={"center"} px={10}>
 					<Logo />
 					<Box fontSize={"2xl"}>
-						{!user && <LinkButton btnText="login" linkTo="/login" />}
-						{user && <MenuToggler userImgSrc={`${user?.avatar_url}`} />}
+						{user ? (
+							<MenuToggler userImgSrc={`${user?.avatar_url}`} />
+						) : (
+							<LinkButton btnText="login" linkTo="/login" />
+						)}
 					</Box>
 				</Flex>
 			</Hide>

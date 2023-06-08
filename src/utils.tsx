@@ -19,7 +19,10 @@ export const getAllData = async () => {
 	}
 }
 
-//  This will make the request to the backend to post the prompt and its parameters
+/**
+ * @async
+ * This will make the request to the backend to post the prompt and its parameters
+ */
 export const postPrompt = async ({
 	prompt,
 	route,

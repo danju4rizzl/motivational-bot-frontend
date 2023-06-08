@@ -5,7 +5,7 @@ const HomePage = () => {
 	return (
 		<Box py={125} px={10} h={"100vh"}>
 			<Grid textAlign={"center"} gap={3} placeItems={"center"}>
-				<Heading as="h1" size={["lg", "2xl"]} maxW={"2xl"}>
+				<Heading as="h1" size={["lg", "2xl", "3xl"]} maxW={"2xl"}>
 					Hire your own Virtual Assistant <small>🤖</small> instantly
 				</Heading>
 				<Text maxW={"md"} fontWeight={"medium"}>

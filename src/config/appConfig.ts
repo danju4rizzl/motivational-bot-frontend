@@ -28,6 +28,7 @@ const appConfig = {
       { value: "Social Media Post", label: "Social Media" },
     ]
   },
+  // You can add or change the colors for the app here
   allColors: {
     brand: {
       100: "#ff0a54",
@@ -36,10 +37,9 @@ const appConfig = {
       400: "#ff7096",
       500: "#ff85a1"
     }
-  },
-
-
+  }
 }
 
 
 export default appConfig;
+

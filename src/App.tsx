@@ -16,7 +16,7 @@ function App() {
 
 	const getAiData = (data: ServerDataObject) => {
 		setServerDataState(data)
-		console.log(data)
+		// console.log(data)
 	}
 
 	return (
@@ -30,6 +30,7 @@ function App() {
 				p={responsivePadding}
 				bg={"whiteAlpha.600"}
 				rounded={"3xl"}
+				shadow="lg"
 			>
 				<PromptForm onServerData={getAiData} />
 			</Box>

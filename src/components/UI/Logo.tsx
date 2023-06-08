@@ -5,7 +5,7 @@ import logo from "../../assets/logo.svg"
 const Logo = () => {
 	return (
 		<Link to="/">
-			<Image src={logo} alt="Logo of AI-Assistant" w={"110px"} />
+			<Image src={logo} alt="Logo of AI-Assistant" w={130} />
 		</Link>
 	)
 }

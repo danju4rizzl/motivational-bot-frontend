@@ -1,16 +1,16 @@
-// Import necessary libraries and components
 import { useForm, FormProvider } from "react-hook-form"
 import {
 	FormControl,
 	FormLabel,
 	Textarea,
-	Button,
-	Select
+	Select,
+	Grid
 } from "@chakra-ui/react"
 
 import { useMutation } from "@tanstack/react-query"
 import { postPrompt } from "../../utils"
 import appConfig from "../../config/appConfig"
+import CustomButton from "../UI/CustomButton"
 
 // Define the interface for the PromptForm component's props
 interface PromptFormProps {
@@ -25,7 +25,7 @@ const PromptForm: React.FC<PromptFormProps> = ({ onServerData }) => {
 	// Configure the postPromptMutation using react-query
 	const postPromptMutation = useMutation(postPrompt, {
 		onSuccess: (data) => {
-			console.log(" data from server:", data)
+			// console.log(" data from server:", data)
 			onServerData(data)
 		},
 		onError: (error) => {
@@ -36,7 +36,7 @@ const PromptForm: React.FC<PromptFormProps> = ({ onServerData }) => {
 
 	// Define the handleSubmitForm function to handle form submission
 	function handleSubmitForm(data: any) {
-		console.log("data", data)
+		// console.log("data", data)
 		const { tone, assistant, format } = data
 
 		// Call the postPromptMutation with the form data
@@ -48,35 +48,30 @@ const PromptForm: React.FC<PromptFormProps> = ({ onServerData }) => {
 		})
 	}
 
-	const methods = useForm()
+	const allFormMethods = useForm()
 
 	// Render the form with the necessary form elements
 	return (
-		<FormProvider {...methods}>
+		<FormProvider {...allFormMethods}>
 			<form onSubmit={handleSubmit(handleSubmitForm)}>
 				<FormControl>
-					<FormLabel htmlFor="Prompt">Write your prompt</FormLabel>
+					<FormLabel htmlFor="promptInput">Write your prompt</FormLabel>
 					<Textarea
-						id="Prompt"
+						id="promptInput"
 						height={{ base: 50, md: 210 }}
+						fontSize={18}
+						color={"blackAlpha.800"}
+						_focus={{
+							border: "none",
+							fontSize: 20
+						}}
+						transition="font 0.3s ease-in"
 						placeholder="I want to you to write a blog about Business Intelligence."
 						{...register("prompt", { required: true, maxLength: 2501 })}
 					/>
 				</FormControl>
-
-				<FormControl>
-					<FormLabel>How do you want to sound</FormLabel>
-					<Select placeholder="Select option" {...register("tone")}>
-						{appConfig.promptConfig.toneOptions.map((option) => (
-							<option key={option.value} value={option.value}>
-								{option.label}
-							</option>
-						))}
-					</Select>
-				</FormControl>
-
-				<FormControl>
-					<FormLabel>Which assistant do you want use</FormLabel>
+				<FormControl my={5}>
+					<FormLabel>Which assistant would you like to use</FormLabel>
 					<Select placeholder="Select option" {...register("assistant")}>
 						{appConfig.promptConfig.assistantOptions.map((option) => (
 							<option key={option.value} value={option.value}>
@@ -86,8 +81,23 @@ const PromptForm: React.FC<PromptFormProps> = ({ onServerData }) => {
 					</Select>
 				</FormControl>
 
-				<FormControl>
-					<FormLabel>How do you want to show results</FormLabel>
+				<FormControl my={5}>
+					<FormLabel>
+						What type of tone would you like to use (optional)
+					</FormLabel>
+					<Select placeholder="Select option" {...register("tone")}>
+						{appConfig.promptConfig.toneOptions.map((option) => (
+							<option key={option.value} value={option.value}>
+								{option.label}
+							</option>
+						))}
+					</Select>
+				</FormControl>
+
+				<FormControl my={5}>
+					<FormLabel>
+						How do you want to view your responses (optional)
+					</FormLabel>
 					<Select placeholder="Select option" {...register("format")}>
 						{appConfig.promptConfig.formatOptions.map((option) => (
 							<option key={option.value} value={option.value}>
@@ -97,9 +107,9 @@ const PromptForm: React.FC<PromptFormProps> = ({ onServerData }) => {
 					</Select>
 				</FormControl>
 
-				<Button colorScheme="teal" my={"5"} type="submit">
-					Send
-				</Button>
+				<Grid>
+					<CustomButton type="submit"> Create Helpful Response</CustomButton>
+				</Grid>
 			</form>
 		</FormProvider>
 	)
