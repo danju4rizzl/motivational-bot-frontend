@@ -21,6 +21,7 @@ interface PromptFormProps {
 const PromptForm: React.FC<PromptFormProps> = ({ onServerData }) => {
 	// Initialize the useForm hook
 	const { register, handleSubmit } = useForm()
+	const methods = useForm()
 
 	// Configure the postPromptMutation using react-query
 	const postPromptMutation = useMutation(postPrompt, {
@@ -48,11 +49,9 @@ const PromptForm: React.FC<PromptFormProps> = ({ onServerData }) => {
 		})
 	}
 
-	const allFormMethods = useForm()
-
 	// Render the form with the necessary form elements
 	return (
-		<FormProvider {...allFormMethods}>
+		<FormProvider {...methods}>
 			<form onSubmit={handleSubmit(handleSubmitForm)}>
 				<FormControl>
 					<FormLabel htmlFor="promptInput">Write your prompt</FormLabel>

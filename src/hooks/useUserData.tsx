@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import supabase from "../config/supabaseClient"
-import { User } from "@supabase/supabase-js"
 
 /**
 Interface for UserMetadata. This describes the data for a user when they are logged in. 
