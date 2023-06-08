@@ -27,7 +27,19 @@ const appConfig = {
       { value: "Markdown", label: "Markdown" },
       { value: "Social Media Post", label: "Social Media" },
     ]
-  }
+  },
+  allColors: {
+    brand: {
+      100: "#ff0a54",
+      200: "#ff477e",
+      300: "#ff5c8a",
+      400: "#ff7096",
+      500: "#ff85a1"
+    }
+  },
+
+
 }
+
 
 export default appConfig;

@@ -1,18 +1,10 @@
-import {
-	Box,
-	Grid,
-	Heading,
-	Text,
-	Link,
-	ButtonGroup,
-	Button
-} from "@chakra-ui/react"
+import { Box, Grid, Heading, Text, ButtonGroup } from "@chakra-ui/react"
 import LinkButton from "../components/UI/LinkButton"
 
 const HomePage = () => {
 	return (
-		<Box py={125} h={"100vh"}>
-			<Grid textAlign={"center"} placeItems={"center"} gap={3}>
+		<Box py={125} px={10} h={"100vh"}>
+			<Grid textAlign={"center"} gap={3} placeItems={"center"}>
 				<Heading as="h1" size={["lg", "2xl"]} maxW={"2xl"}>
 					Hire your own Virtual Assistant <small>🤖</small> instantly
 				</Heading>
