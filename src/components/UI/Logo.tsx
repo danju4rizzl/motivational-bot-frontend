@@ -5,12 +5,7 @@ import logo from "../../assets/logo.svg"
 const Logo = () => {
 	return (
 		<Link to="/">
-			<Image
-				src={logo}
-				alt="Logo of AI-Assistant"
-				p={{ base: 5, md: 2 }}
-				w={"3xs"}
-			/>
+			<Image src={logo} alt="Logo of AI-Assistant" w={"110px"} />
 		</Link>
 	)
 }

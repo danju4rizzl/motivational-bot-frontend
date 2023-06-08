@@ -1,5 +1,7 @@
 
-
+/*
+* This is the setting config for the clients UI
+*/
 const appConfig = {
   promptConfig: {
     toneOptions: [

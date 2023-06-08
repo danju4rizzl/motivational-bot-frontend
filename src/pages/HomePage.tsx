@@ -7,38 +7,28 @@ import {
 	ButtonGroup,
 	Button
 } from "@chakra-ui/react"
+import LinkButton from "../components/UI/LinkButton"
 
 const HomePage = () => {
 	return (
-		<Box my={14}>
+		<Box py={125} h={"100vh"}>
 			<Grid textAlign={"center"} placeItems={"center"} gap={3}>
 				<Heading as="h1" size={["lg", "2xl"]} maxW={"2xl"}>
 					Hire your own Virtual Assistant <small>🤖</small> instantly
 				</Heading>
 				<Text maxW={"md"} fontWeight={"medium"}>
-					With our visual assistants, you can finally focus on the things that
-					matter most. Start working 10x 🦾 more productive today!
+					with <strong>Luma</strong>, you can finally Become
+					<strong> 10x</strong> productive 🦾 and focus on the things that
+					matter most!
 				</Text>
 
 				<ButtonGroup spacing={5} my={2}>
-					<Link
-						as={Button}
-						bg="teal.600"
-						href="#"
-						color={"white"}
-						_hover={{ bg: "teal.400" }}
-					>
-						Login
-					</Link>
-					<Link
-						as={Button}
-						bg="pink.600"
-						href="#"
-						color={"white"}
-						_hover={{ bg: "pink.400" }}
-					>
-						Register
-					</Link>
+					<LinkButton
+						btnText="Try out Luma for Free "
+						linkTo="/login"
+						isOutline
+						textColor="brand.300"
+					/>
 				</ButtonGroup>
 			</Grid>
 		</Box>

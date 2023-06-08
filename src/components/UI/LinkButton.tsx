@@ -29,12 +29,12 @@ const LinkButton = ({
 			py={1}
 			fontWeight={"semibold"}
 			textTransform={"capitalize"}
-			bg={!isOutline ? "teal" : ""}
+			bg={!isOutline ? "brand.300" : ""}
 			color={textColor || "white"}
 			border={isOutline ? "1px solid currentColor" : ""}
 			rounded={"base"}
 			_hover={{
-				bg: `${!isOutline ? "teal.500" : ""}`
+				bg: `${!isOutline ? "brand.500" : ""}`
 			}}
 			onClick={onClick}
 			reloadDocument={reloadPage}

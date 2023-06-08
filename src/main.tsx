@@ -9,14 +9,17 @@ import LoginPage from "./pages/LoginPage.tsx"
 import Root from "./routes/Root.tsx"
 import ErrorPage from "./pages/ErrorPage.tsx"
 import useUserData from "./hooks/useUserData.tsx"
+import HomePage from "./pages/HomePage.tsx"
 
 // This is to extend chakraUI's color styles
 // This defines the colors object, which contains the brand color palette
 const colors = {
 	brand: {
-		900: "#1a365d",
-		800: "#153e75",
-		700: "#2a69ac"
+		100: "#ff0a54",
+		200: "#ff477e",
+		300: "#ff5c8a",
+		400: "#ff7096",
+		500: "#ff85a1"
 	}
 }
 
@@ -28,6 +31,10 @@ const router = createBrowserRouter([
 		element: <Root />,
 		errorElement: <ErrorPage />,
 		children: [
+			{
+				path: "/",
+				element: <HomePage /> // This will show the home page whenever the user is on the home route
+			},
 			{
 				path: "/login",
 				element: <LoginPage />
