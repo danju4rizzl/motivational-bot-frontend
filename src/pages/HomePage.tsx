@@ -14,14 +14,14 @@ const HomePage = () => {
 					matter most!
 				</Text>
 
-				<ButtonGroup spacing={5} my={2}>
+				<Box my={2}>
 					<LinkButton
 						btnText="Try out Luma for Free "
 						linkTo="/login"
 						isOutline
 						textColor="brand.300"
 					/>
-				</ButtonGroup>
+				</Box>
 			</Grid>
 		</Box>
 	)

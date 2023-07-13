@@ -1,13 +1,9 @@
 import axios from "axios"
+import appConfig from "./config/appConfig"
+import { PostPromptProps } from "./config/types"
 
-const API_URL = "http://localhost:8000"
-
-interface postPromptProps {
-	prompt: string
-	tone: string
-	format: string
-	route: string
-}
+// This is the url of the backend globally available
+const API_URL = appConfig.localServerUrl
 
 //  This will make the request to the backend to get all the data
 export const getAllData = async () => {
@@ -25,11 +21,11 @@ export const getAllData = async () => {
  */
 export const postPrompt = async ({
 	prompt,
-	route,
+	assistant,
 	tone,
 	format
-}: postPromptProps) => {
-	const response = await axios.post(`${API_URL}/${route}`, {
+}: PostPromptProps) => {
+	const response = await axios.post(`${API_URL}/${assistant}`, {
 		prompt,
 		tone,
 		format

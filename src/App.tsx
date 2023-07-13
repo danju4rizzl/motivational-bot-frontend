@@ -1,11 +1,7 @@
 import { useState } from "react"
-
 import { Flex, Text, Box, Card, CardBody } from "@chakra-ui/react"
 import PromptForm from "./components/PromptForm"
-
-interface ServerDataObject {
-	aiData: string
-}
+import { ServerDataObject } from "./config/types"
 
 function App() {
 	const responsivePadding = { base: "1.2rem", md: "1.6rem", lg: "2rem" }
@@ -32,13 +28,13 @@ function App() {
 				rounded={"3xl"}
 				shadow="lg"
 			>
-				<PromptForm onServerData={getAiData} />
+				<PromptForm serverData={getAiData} />
 			</Box>
 			<Box w={["100%", null, "50%"]} p={responsivePadding}>
 				{serverDataState && (
 					<Card rounded={"3xl"} bg={"whiteAlpha.600"} shadow="2xl">
-						<CardBody p={{ base: "10", md: "14", lg: "20" }}>
-							<Text fontSize="2xl">{serverDataState.aiData}</Text>
+						<CardBody p={{ base: 8, md: 14, lg: 10 }}>
+							<Text fontSize="lg">{serverDataState.aiData}</Text>
 						</CardBody>
 					</Card>
 				)}

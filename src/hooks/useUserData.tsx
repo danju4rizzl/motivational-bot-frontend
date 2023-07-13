@@ -15,7 +15,7 @@ interface UserMetadata {
 /**
 * 🟢 This hook will return the logged-in user's metadata from Supabase by @real_deejay_dev
 * @example const user = useUserData();
-					user ? 'Has Data' : 'No Data
+					user ? 'Has Data' : 'No Data'
 */
 const useUserData = () => {
 	const [userData, setUserData] = useState<UserMetadata | null>(null)

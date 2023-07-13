@@ -3,6 +3,7 @@
 * This is the setting config for the clients UI
 */
 const appConfig = {
+  localServerUrl: "http://localhost:8000",
   promptConfig: {
     toneOptions: [
       { value: "Happy", label: "Happy" },
@@ -23,7 +24,6 @@ const appConfig = {
       { value: "Step by Step", label: "List" },
       { value: "Paragraph", label: "Paragraph" },
       { value: "Email", label: "Email" },
-      { value: "Code", label: "Code" },
       { value: "Markdown", label: "Markdown" },
       { value: "Social Media Post", label: "Social Media" },
     ]
