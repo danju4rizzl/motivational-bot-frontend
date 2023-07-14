@@ -1,5 +1,10 @@
-# Ai-assistant Frontend
+# Luma-ai Frontend
 
 ### Live FE demo on Netlify 👇
 
-https://ai-assistant-demo-1.netlify.app/
+https://luma-ai.netlify.app
+
+#### Tech Stack for the Frontend
+
+- Hosted on Netlify: https://netlify.com
+- Authentication with Supabase: https://supabase.com
