@@ -1,4 +1,4 @@
-import { Box, Grid, Heading, Text, ButtonGroup } from "@chakra-ui/react"
+import { Box, Grid, Heading, Text } from "@chakra-ui/react"
 import LinkButton from "../components/UI/LinkButton"
 
 const HomePage = () => {

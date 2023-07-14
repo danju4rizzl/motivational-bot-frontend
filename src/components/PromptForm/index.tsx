@@ -5,8 +5,7 @@ import {
 	Textarea,
 	Select,
 	Grid,
-	useToast,
-	Icon
+	useToast
 } from "@chakra-ui/react"
 
 import { useMutation } from "@tanstack/react-query"
@@ -14,7 +13,7 @@ import { postPrompt } from "../../utils"
 import appConfig from "../../config/appConfig"
 import CustomButton from "../UI/CustomButton"
 
-import { Md123 } from "react-icons/md"
+// import { Md123 } from "react-icons/md"
 import { PostPromptProps, PromptFormProps } from "../../config/types"
 
 // Define the PromptForm component
@@ -47,7 +46,7 @@ const PromptForm: React.FC<PromptFormProps> = ({ serverData }) => {
 	})
 
 	// Define the handleSubmitForm function to handle form submission
-	function handleSubmitForm(data: PostPromptProps) {
+	function handleSubmitForm(data: PostPromptProps | any) {
 		console.log("data", data)
 
 		// Call the postPromptMutation with the form data
