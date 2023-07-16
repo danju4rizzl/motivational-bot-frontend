@@ -3,7 +3,12 @@ import appConfig from "./config/appConfig"
 import { PostPromptProps } from "./config/types"
 
 // This is the url of the backend globally available
-const API_URL = appConfig.localServerUrl
+const API_URL =
+	process.env.NODE_ENV === "development"
+		? appConfig.server.devUrl
+		: appConfig.server.prodUrl
+
+// console.log(process.env.NODE_ENV)
 
 //  This will make the request to the backend to get all the data
 export const getAllData = async () => {
@@ -25,7 +30,7 @@ export const postPrompt = async ({
 	tone,
 	format
 }: PostPromptProps) => {
-	const response = await axios.post(`${API_URL}/${assistant}`, {
+	const response = await axios.post(`${API_URL}/api/v1/${assistant}`, {
 		prompt,
 		tone,
 		format

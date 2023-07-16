@@ -3,7 +3,10 @@
 * This is the setting config for the clients UI
 */
 const appConfig = {
-  localServerUrl: "http://localhost:8000",
+  server: {
+    devUrl: "http://localhost:8000",
+    prodUrl: "https://luma-ai-backend-server.onrender.com",
+  },
   promptConfig: {
     toneOptions: [
       { value: "Happy", label: "Happy" },
