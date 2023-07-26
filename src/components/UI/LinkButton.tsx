@@ -38,6 +38,7 @@ const LinkButton = ({
 			}}
 			onClick={onClick}
 			reloadDocument={reloadPage}
+			fontSize="sm"
 		>
 			{btnText}
 		</Link>

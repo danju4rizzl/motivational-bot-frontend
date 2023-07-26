@@ -24,7 +24,7 @@ const Header = () => {
 			</Hide>
 			{/* Mobile Navigation */}
 			<Hide above="md">
-				<Flex justify={"space-between"} alignItems={"center"} px={10}>
+				<Flex justify={"space-between"} alignItems={"center"} p={5}>
 					<Logo />
 					<Box fontSize={"2xl"}>
 						{user ? (
